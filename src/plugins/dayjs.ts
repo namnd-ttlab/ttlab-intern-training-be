@@ -22,9 +22,9 @@ dayjs.tz.setDefault('Asia/Tokyo');
 export default dayjs;
 export type Dayjs = dayjs.Dayjs;
 export const parseDate = (
-  _value: string | number | dayjs.Dayjs | Date | null,
-  format = DateFormat.YYYY_MM_DD_HYPHEN,
+    _value: string | number | dayjs.Dayjs | Date | null,
+    format = DateFormat.YYYY_MM_DD_HYPHEN,
 ) => {
-  if (_value) return dayjs(_value).format(format);
-  return _value;
+    if (_value) return dayjs(_value).format(format);
+    return _value;
 };

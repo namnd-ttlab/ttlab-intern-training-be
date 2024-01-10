@@ -11,32 +11,32 @@ import { UserModule } from './modules/user/user.module';
 import { TransformInterceptor } from './modules/common/transform.interceptor';
 import { HeaderMiddleware } from './modules/middleware/header.middleware';
 @Module({
-  imports: [
-    ConfigModule.forRoot({
-      envFilePath: '.env',
-      isGlobal: true,
-      validationSchema: envSchema,
-    }),
-    CommonModule,
-    I18nModule,
-    MongoModule,
-    UserModule,
-  ],
-  controllers: [AppController],
-  providers: [
-    {
-      provide: APP_FILTER,
-      scope: Scope.REQUEST,
-      useClass: HttpExceptionFilter,
-    },
-    {
-      provide: APP_INTERCEPTOR,
-      useClass: TransformInterceptor,
-    },
-  ],
+    imports: [
+        ConfigModule.forRoot({
+            envFilePath: '.env',
+            isGlobal: true,
+            validationSchema: envSchema,
+        }),
+        CommonModule,
+        I18nModule,
+        MongoModule,
+        UserModule,
+    ],
+    controllers: [AppController],
+    providers: [
+        {
+            provide: APP_FILTER,
+            scope: Scope.REQUEST,
+            useClass: HttpExceptionFilter,
+        },
+        {
+            provide: APP_INTERCEPTOR,
+            useClass: TransformInterceptor,
+        },
+    ],
 })
 export class AppModule implements NestModule {
-  configure(consumer: MiddlewareConsumer) {
-    consumer.apply(HeaderMiddleware).forRoutes('*');
-  }
+    configure(consumer: MiddlewareConsumer) {
+        consumer.apply(HeaderMiddleware).forRoutes('*');
+    }
 }

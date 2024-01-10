@@ -7,18 +7,18 @@ import { UserRepository } from '../user/user.repository';
 
 @Global()
 @Module({
-  imports: [
-    MongooseModule.forFeature([{ name: User.name, schema: UserSchema }]),
-  ],
-  controllers: [],
-  providers: [
-    {
-      provide: ConfigService,
-      useValue: new ConfigService(),
-    },
-    UserRepository,
-    I18nService,
-  ],
-  exports: [UserRepository, I18nService],
+    imports: [
+        MongooseModule.forFeature([{ name: User.name, schema: UserSchema }]),
+    ],
+    controllers: [],
+    providers: [
+        {
+            provide: ConfigService,
+            useValue: new ConfigService(),
+        },
+        UserRepository,
+        I18nService,
+    ],
+    exports: [UserRepository, I18nService],
 })
 export class CommonModule {}

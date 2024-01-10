@@ -1,5 +1,5 @@
 {
-  "error": {
-    "notFound": "User does not exist"
-  }
+    "error": {
+        "notFound": "User does not exist"
+    }
 }
