@@ -5,15 +5,15 @@ dotenv.config();
 
 let config = {} as { [key in keyof typeof ConfigKey]: any };
 function makeConfig() {
-  const _config = {};
-  Object.values(ConfigKey).forEach((key) => {
-    _config[key] = process.env?.[key];
-  });
-  const validateResult = validationSchema.validate(_config);
-  if (validateResult?.error) {
-    throw validateResult.error;
-  }
-  config = validateResult.value;
+    const _config = {};
+    Object.values(ConfigKey).forEach((key) => {
+        _config[key] = process.env?.[key];
+    });
+    const validateResult = validationSchema.validate(_config);
+    if (validateResult?.error) {
+        throw validateResult.error;
+    }
+    config = validateResult.value;
 }
 
 makeConfig();

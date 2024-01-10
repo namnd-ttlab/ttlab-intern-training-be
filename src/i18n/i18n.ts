@@ -11,10 +11,10 @@ export type DefaultLocale = typeof en;
 export type I18nKey = RecursiveKeyOf<DefaultLocale> | String;
 
 type RecursiveKeyOf<TObj extends Record<string, any>> = {
-  [TKey in keyof TObj & string]: TObj[TKey] extends Record<string, any>
-    ? // @ts-ignore
-      `${TKey}` | `${TKey}.${RecursiveKeyOf<TObj[TKey]>}`
-    : `${TKey}`;
+    [TKey in keyof TObj & string]: TObj[TKey] extends Record<string, any>
+        ? // @ts-ignore
+          `${TKey}` | `${TKey}.${RecursiveKeyOf<TObj[TKey]>}`
+        : `${TKey}`;
 }[keyof TObj & string];
 
 /**
@@ -23,5 +23,5 @@ type RecursiveKeyOf<TObj extends Record<string, any>> = {
  * @param key The i18n key.
  */
 export function translate(key: I18nKey, options?: TranslateOptions): string {
-  return I18nContext.current().t(key as string, options);
+    return I18nContext.current().t(key as string, options);
 }

@@ -1,3 +1,3 @@
 export enum MongoCollection {
-  USERS = 'users',
+    USERS = 'users',
 }
